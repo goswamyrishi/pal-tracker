@@ -122,7 +122,6 @@ public class TimeEntryApiTest {
         HttpEntity<TimeEntry> entity = new HttpEntity<>(timeEntry);
 
         ResponseEntity<TimeEntry> response = restTemplate.exchange("/time-entries", HttpMethod.POST, entity, TimeEntry.class);
-
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
 
         return response.getBody().getId();
